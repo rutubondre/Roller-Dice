@@ -5,13 +5,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dice Roller</title>
+    <style>
+        .container {
+            width: 400px;
+            border: 4px solid #e6005c;
+            border-radius: 10px;
+            display: block;
+            margin: 30px auto;
+            background-color: #ff80b3;
+        }
+        
+        .img-dice {
+            width: 300px;
+            display: block;
+            margin: 20px auto;
+        }
+        
+        .btn-roll {
+            display: block;
+            margin: 20px auto;
+            background-color: #b30047;
+            color: #ffff;
+            font-size: 20px;
+            padding: 10px 40px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .heading {
+            text-align: center;
+            font-size: 50px;
+        }
+    </style>
 </head>
 
 <body>
-    <div>
-        <h1>Dice Roller</h1>
+    <div class="container">
+        <h1 class="heading">Dice Roller</h1>
+        <img src="one.png" alt="" class="img-dice" id="img-dice" />
+        <button type="button" class="btn-roll" onclick="rollDice()">Roll Dice</button>
+
     </div>
+    <script>
+        function rollDice() {
+            const min = 1;
+            const max = 6;
+            const randomNumber = Math.round(Math.random() * (max - min)) + min;
+            const diceImg = document.getElementById('img-dice');
 
-</body>
 
-</html>
+            if (randomNumber == 1) {
+                diceImg.src = 'one.png';
+            } else if (randomNumber == 2) {
+                diceImg.src = 'two.png';
+            } else if (randomNumber == 3) {
+                diceImg.src = 'three.png';
+            } else if (randomNumber == 4) {
+                diceImg.src = 'four.png';
+            } else if (randomNumber == 5) {
+                diceImg.src = 'five.png';
+            } else {
+                diceImg.src = 'six.png';
+            }
+        }
+    </script>
